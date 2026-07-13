@@ -9,7 +9,7 @@ permissions:
   contents: read
   issues: write
   pull-requests: write
-
+  
 jobs:
   train-and-report:
     runs-on: ubuntu-latest
@@ -21,7 +21,8 @@ jobs:
         with:
           python-version: "3.11.3"
 
-      - uses: iterative/setup-cml@v2.0.1
+      - uses: iterative/setup-cml@v2.0.1 
+        with: 'node24
 
       - name: Install dependencies
         run: |
