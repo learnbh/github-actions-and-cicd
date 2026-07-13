@@ -68,7 +68,7 @@ def train_model(df):
     metrics = {
         "rmse_train": root_mean_squared_error(y_train, y_pred_train),
         "rmse_test": root_mean_squared_error(y_test, y_pred_test),
-        "rows_before_filtering": len(df),
+        "rows_before_filtering": len(df), # added to test cml workflow
         "rows_after_filtering": len(df_processed),
     }
     return pipeline, metrics
