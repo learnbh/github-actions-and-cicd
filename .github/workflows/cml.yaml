@@ -9,7 +9,10 @@ permissions:
   contents: read
   issues: write
   pull-requests: write
-  
+
+#env:  
+#  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: "true"  
+
 jobs:
   train-and-report:
     runs-on: ubuntu-latest
@@ -21,8 +24,12 @@ jobs:
         with:
           python-version: "3.11.3"
 
+      - name: Install Missing Canvas Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libpixman-1-dev libcairo2-dev libpango1.0-dev
+          
       - uses: iterative/setup-cml@v2.0.1 
-        with: 'node24
 
       - name: Install dependencies
         run: |
